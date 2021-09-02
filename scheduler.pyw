@@ -17,8 +17,8 @@ def calc_time(minute, hour, h_in_d=1, mp=1, days_till_event=0 ):
 def main():
     d = datetime.datetime.today()
     c = ConfigParser(
-        filename = "sheduler_config.txt",
-        config_header = "Sheduler_config",
+        filename = "scheduler_config.txt",
+        config_header = "Scheduler_config",
         configs_list = ['period', 'skript_name_py']
     )
     config = c.get_configs()
