@@ -55,8 +55,8 @@ Run the file genshin_daily_reward_collector.py with the command `python genshin_
 	- You can find out the time before the script runs with the command `python ссheduler.pyw time` the script will not run.
 
 
-- Running with Windows Task Scheduler [link](https://remontka.pro/windows-task-scheduler/)
-- Run with cron (Linux) [link](https://www.nic.ru/help/planirovshik-cron-zapusk-programm-po-raspisaniyu_6791.html)
+- Run with Windows Task Scheduler [link](https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-windows-10)
+- Run with cron (Linux) [link](https://www.jessicayung.com/automate-running-a-script-using-crontab/)
 
 
 The license
