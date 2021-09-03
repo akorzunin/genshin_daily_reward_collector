@@ -59,7 +59,7 @@ Run the file genshin_daily_reward_collector.py with the command `python genshin_
 - Run with cron (Linux) [link](https://www.jessicayung.com/automate-running-a-script-using-crontab/)
 
 
-The license
+License
 ---
 Genshin daily reward collector is free and open-source software licensed under the [Apache 2.0 License](https://github.com/create-go-app/cli/blob/master/LICENSE).
 
