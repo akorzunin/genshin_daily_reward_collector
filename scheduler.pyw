@@ -2,9 +2,9 @@ import datetime
 import sys
 from time import sleep
 from calendar import monthrange
-
+from contextlib import redirect_stdout
 from config_parser import ConfigParser
-
+DEBUG = not __debug__
 
 def calc_time(minute, hour, h_in_d=1, mp=1, days_till_event=0 ):
     d = datetime.datetime.today()
@@ -22,7 +22,7 @@ def main():
         configs_list = ['period', 'skript_name_py']
     )
     config = c.get_configs()
-
+    log_filename = 'log.txt'
     period_type = config['period'].split(', ')[0]
     period_mark = config['period'].split(', ')[1]
     try:
@@ -71,9 +71,13 @@ def main():
     try:
         if sys.argv[1] == 'time': pass
     except IndexError:
-        sleep(time_to_wait)
+        if not DEBUG:
+            sleep(time_to_wait)
         # run script with __name__ == __main__
-        exec(open(config['skript_name_py']).read())
+        with open(log_filename, "a+") as f:
+            with redirect_stdout(f):
+                f.write(f'{str(datetime.datetime.today())[:-7]} log: ')
+                exec(open(config['skript_name_py'], encoding='UTF-8').read())
 
 
 # sourcery skip: remove-redundant-if
