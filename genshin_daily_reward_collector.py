@@ -1,33 +1,20 @@
-'''Collect reward with requests or browser'''
-from request_collector import *
-from browser_collector import *
-import config_parser
-import genshin_daily_reward_collector
+import datetime
+from contextlib import redirect_stdout
+from reward_collector import RewardCollector
+
+
+def main():
+    LOG_FILENAME = 'log.txt'
+    config = RewardCollector.get_configs()
+
+    with open(LOG_FILENAME, "a+") as f:
+        with redirect_stdout(f):
+            f.write(f'{str(datetime.datetime.today())[:-7]} log: ')
+            # run collector
+            if config['auth_type'] == 'browser':
+                RewardCollector.collect_browser(config)
+            if config['auth_type'] == 'request':  
+                RewardCollector.collect_requests(config)
 
 if __name__ == '__main__':
-    c = config_parser.ConfigParser(
-        filename = "genshin_collector_config.txt",
-        config_header="Config_section",
-        configs_list = ['auth_type', 'cookie', 'browser_profile_path', 'webdriver_exec_path', 'firefox_binary_path', 'web_browser', 'url']
-    )
-    config = c.get_configs()
-
-    if config['auth_type'] == 'browser':
-        t = genshin_daily_reward_collector.WebDriverClass(
-                browser_profile_path=config['browser_profile_path'],
-                webdriver_exec_path=config['webdriver_exec_path'],
-                firefox_binary_path=config['firefox_binary_path'],
-                web_browser=config['web_browser'],
-                url = config['url']
-            )
-        t.driver_init()
-        t.main()
-    
-    if config['auth_type'] == 'request':
-        print(config['cookie'])
-        c = RequestCollector( 
-            act_id=config['url'].split('=')[-1], 
-            cookie=config['cookie']
-        )
-        c.main()    
-            
+    main()
