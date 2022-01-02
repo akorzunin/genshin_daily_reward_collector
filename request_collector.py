@@ -1,5 +1,6 @@
 """Collector for daily reward with requests .
 """
+import logging
 import requests
 
 
@@ -88,6 +89,7 @@ class RequestCollector(object):
         self.getReward(c)
         p = self.claimReward(c)
         print(p['message'])
+        logging.info(p['message'])
 
 if __name__ == '__main__':
     c = RequestCollector( cookie='test', 
