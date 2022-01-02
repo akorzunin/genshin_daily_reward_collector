@@ -13,7 +13,7 @@ def main():
     # redefine cookies if .env file have COOKIE field
     COOKIE = os.getenv('COOKIE')
     if COOKIE is not None:
-        config['COOKIE'] = COOKIE
+        config['cookie'] = COOKIE
     logging.basicConfig(
         filename=LOG_FILENAME, 
         filemode='a+', 
