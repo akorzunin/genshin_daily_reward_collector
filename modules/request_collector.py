@@ -3,8 +3,6 @@
 import logging
 import requests
 
-
-
 class RequestCollector(object):
     """Collector for the request collector .
 
