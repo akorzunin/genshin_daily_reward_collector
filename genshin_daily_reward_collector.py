@@ -14,13 +14,13 @@ def main():
     COOKIE = os.getenv('COOKIE')
     if COOKIE is not None:
         config['cookie'] = COOKIE
-    if STREAM_HANDLER:
-        logging.getLogger().addHandler(logging.StreamHandler())
     logging.basicConfig(
         filename=LOG_FILENAME, 
         format='%(asctime)s [%(levelname)s]: %(message)s', 
         level=logging.INFO,
         )
+    if STREAM_HANDLER:
+        logging.getLogger().addHandler(logging.StreamHandler())
     # logging.info(COOKIE)
     if config['auth_type'] == 'browser':
         RewardCollector.collect_browser(config)
