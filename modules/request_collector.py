@@ -86,7 +86,7 @@ class RequestCollector(object):
         c = self.loadCookies(self.cookie)
         self.getReward(c)
         p = self.claimReward(c)
-        print(p['message'])
+        # print(p['message'])
         logging.info(p['message'])
 
 if __name__ == '__main__':

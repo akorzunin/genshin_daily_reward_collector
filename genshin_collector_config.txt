@@ -1,8 +1,0 @@
-[Config_section]
-auth_type: request
-url: https://webstatic-sea.mihoyo.com/ys/event/signin-sea/index.html?act_id=e202102251931481
-cookie: 
-browser_profile_path: 
-webdriver_exec_path: 
-firefox_binary_path: C:\\Program Files\\Mozilla Firefox\\firefox.exe
-web_browser: firefox

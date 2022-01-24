@@ -1,3 +1,0 @@
-[Scheduler_config]
-period: daily, 20:00
-skript_name_py: genshin_daily_reward_collector.py 
